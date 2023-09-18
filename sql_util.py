@@ -34,8 +34,12 @@ def get_database_endpoint_details(db_identifier):
     return response['DBInstances'][0]['Endpoint']
 
 
-if __name__ == '__main__':
+def main():
     primary_db_identifier = "test"
     endpoints = get_replicas_endpoints(primary_db_identifier)
     for endpoint in endpoints:
         print(f"Endpoint url {endpoint['Address']} and port {endpoint['Port']}")
+
+
+if __name__ == '__main__':
+    main()
