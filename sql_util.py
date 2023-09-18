@@ -15,8 +15,7 @@ def get_replicas_endpoints(primary_db_identifier):
         ]
     )
     replicas = response['DBInstances'][0]['ReadReplicaDBInstanceIdentifiers']
-    endpoint_list = map(get_database_endpoint_details, replicas)
-    return endpoint_list
+    return map(get_database_endpoint_details, replicas)
 
 
 def get_database_endpoint_details(db_identifier):
@@ -32,8 +31,7 @@ def get_database_endpoint_details(db_identifier):
             },
         ]
     )
-    endpoint = response['DBInstances'][0]['Endpoint']
-    return endpoint
+    return response['DBInstances'][0]['Endpoint']
 
 
 if __name__ == '__main__':
